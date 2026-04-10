@@ -10,9 +10,9 @@ class LeafNode(HTMLNode):
         if self.tag is None:
             return self.value
         if self.tag == "a":
-            return f"<a href=\"{self.props["href"]}\">{self.value}</a>"
+            return f"<a{self.props_to_html()}>{self.value}</a>"
         if self.tag == "img":
-            return f"<img src=\"{self.props["src"]}\" alt=\"{self.value}\" />"
+            return f"<img{self.props_to_html()} />"
         
         return f"<{self.tag}>{self.value}</{self.tag}>"
     
